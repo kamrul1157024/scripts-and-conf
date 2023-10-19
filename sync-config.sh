@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ----------sync tmux--------
-cp ./tmux.conf ~/tmux.conf
+cp ./tmux-conf/tmux.conf ~/tmux.conf
 # ----------------------------
 
 #-----------sync lazyvim------
