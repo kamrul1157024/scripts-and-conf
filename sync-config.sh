@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # ----------sync tmux--------
-cp ./tmux-conf/tmux.conf ~/tmux.conf
+cp -f ./tmux-conf/tmux.conf ~/tmux.conf
 # ----------------------------
 
 #-----------sync lazyvim------
-cp -r ./lazyvim-conf ~/.config/nvim
+cp -fr ./lazyvim-conf ~/.config/nvim
 #------------------------------
 
