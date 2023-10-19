@@ -1,6 +1,5 @@
 #!/bin/sh
 
-pwd
 echo "Synching configs...."
 ./sync-config.sh
 echo "Sync Completed"

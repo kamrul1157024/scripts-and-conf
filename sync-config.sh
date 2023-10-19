@@ -5,6 +5,6 @@ cp ./tmux.conf ~/tmux.conf
 # ----------------------------
 
 #-----------sync lazyvim------
-cp -r ./LazyVim ~/.config/nvim
+cp -r ./lazyvim-conf ~/.config/nvim
 #------------------------------
 
