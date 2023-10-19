@@ -16,6 +16,10 @@ return {
     },
   },
   {
+    "rcarriga/nvim-notify",
+    enabled = false,
+  },
+  {
     "tpope/vim-fugitive",
   },
   {
