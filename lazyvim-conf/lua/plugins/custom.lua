@@ -20,9 +20,6 @@ return {
     enabled = false,
   },
   {
-    'fatih/vim-go'
-  },
-  {
     "tpope/vim-fugitive",
   },
   {
