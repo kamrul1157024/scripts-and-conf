@@ -12,11 +12,16 @@ function gh-review(){
 
 function fork-and-add-remote(){
   gh repo fork "newscred/$1" --clone=False
+  git remote rm kamrul
   git remote add kamrul "git@github.com:kamrul1157024/$1.git"
 }
 
 function gh-remote(){
   repoName=$(pwd|awk -F "/" '{print $NF}')
   fork-and-add-remote "$repoName"
+
+  echo "All available remotes:"
+
+  git remote -v
 }
 
