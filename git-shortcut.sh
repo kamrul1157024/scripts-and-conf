@@ -2,6 +2,7 @@ alias glog="git log --graph --oneline"
 alias gcommit="git commit -m $1"
 alias gpush="git push kamrul HEAD"
 alias gpull="git pull newscred master"
+alias grename="git remote rename origin kamrul"
 
 function gh-review(){
   repo_name=$(echo "$1"|cut -d "/" -f 5)
