@@ -10,3 +10,13 @@ function gh-review(){
   gh pr checkout -f $1
 }
 
+function fork-and-add-remote(){
+  gh repo fork "newscred/$1" --clone=False
+  git remote add kamrul "git@github.com:kamrul1157024/$1.git"
+}
+
+function gh-remote(){
+  repoName=$(pwd|awk -F "/" '{print $NF}')
+  fork-and-add-remote "$repoName"
+}
+
