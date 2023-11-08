@@ -8,7 +8,5 @@ function ssh-init() {
         ssh-add
 }
 
-ssh-init
-
 source ~/scripts-and-conf/source.sh
 
