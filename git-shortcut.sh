@@ -1,3 +1,4 @@
+source ~/scripts-and-conf/common.sh
 alias glog="git log --graph --oneline"
 alias gcommit="git commit -m $1"
 alias gpush="git push kamrul HEAD"
@@ -17,7 +18,7 @@ function fork-and-add-remote(){
 }
 
 function gh-remote(){
-  repoName=$(pwd|awk -F "/" '{print $NF}')
+  repoName=$(getRepoNameFromPwd)
   fork-and-add-remote "$repoName"
 
   echo "All available remotes:"
