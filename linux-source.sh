@@ -8,5 +8,18 @@ function ssh-init() {
         ssh-add
 }
 
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
+
+# avoid duplicates..
+export HISTCONTROL=ignoredups:erasedups
+
+# append history entries..
+shopt -s histappend
+
+# After each command, save and reload history
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+
 source ~/scripts-and-conf/source.sh
 
