@@ -20,6 +20,9 @@ return {
     enabled = false,
   },
   {
+    "kylechui/nvim-surround"
+  },
+  {
     "tpope/vim-fugitive",
   },
   {
