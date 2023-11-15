@@ -1,5 +1,7 @@
 source ~/scripts-and-conf/common.sh
 alias glog="git log --graph --oneline"
+alias gdiff="git diff"
+alias gadd="git add ."
 alias gcommit="git commit -m $1"
 alias gpush="git push kamrul HEAD"
 alias gpull="git pull newscred master"
