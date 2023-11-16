@@ -45,3 +45,6 @@ EOF
 }
 
 ssh-add-file ~/.ssh/id_rsa ~/.ssh/passphrase >>/dev/null
+
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
