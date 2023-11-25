@@ -3,3 +3,10 @@ function getRepoNameFromPwd() {
 	echo $repoName
 }
 
+function exec-if-not-exit(){
+  if ! command -v $1 &> /dev/null
+  then
+      echo "<the_command> could not be found"
+      eval  $2
+  fi
+}
