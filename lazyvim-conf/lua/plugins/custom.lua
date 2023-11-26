@@ -15,6 +15,28 @@ return {
       },
     },
   },
+{
+    "nvim-treesitter/nvim-treesitter",
+    enabled = false,
+    opts = {
+      ensure_installed = {
+        "bash",
+        "html",
+        "javascript",
+        "json",
+        "lua",
+        "markdown",
+        "markdown_inline",
+        "python",
+        "query",
+        "regex",
+        "tsx",
+        "typescript",
+        "vim",
+        "yaml",
+      },
+    },
+  },
   {
     "rcarriga/nvim-notify",
     enabled = false,
@@ -39,7 +61,6 @@ return {
       ---@type lspconfig.options
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
-        pyright = {},
         ruff_lsp = {},
       },
       setup = {
