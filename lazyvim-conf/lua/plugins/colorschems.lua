@@ -2,6 +2,7 @@ return {
   {
     "navarasu/onedark.nvim",
     opts = {
+      transparent= true,
       style = "darker",
       colors = {
         bg0 = '#000000',

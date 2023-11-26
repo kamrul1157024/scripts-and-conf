@@ -93,7 +93,6 @@ return {
     opts = {
       ---@type lspconfig.optionsexa
       servers = {
-        -- pyright will be automatically installed with mason and loaded with lspconfig
         pyright = {},
       },
     },
