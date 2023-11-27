@@ -19,9 +19,6 @@ return {
     "kamykn/spelunker.vim",
   },
   {
-    "kamykn/popup-menu.nvim",
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     enabled = false,
     opts = {
