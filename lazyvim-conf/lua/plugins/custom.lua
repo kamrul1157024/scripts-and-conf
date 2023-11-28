@@ -16,17 +16,24 @@ return {
     },
   },
   {
-    "nvimtools/none-ls.nvim",
+    "mfussenegger/nvim-lint",
     opts = function(_, opts)
-      local nls = require("null-ls")
-      opts.root_dir = opts.root_dir
-        or require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git")
-      opts.sources = vim.list_extend(opts.sources or {}, {
-        nls.builtins.diagnostics.cspell,
-        nls.builtins.code_actions.cspell,
-      })
+      print(vim.inspect(opts))
+      opts.linters_by_ft["*"] = { "cspell" }
     end,
   },
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   opts = function(_, opts)
+  --     local nls = require("null-ls")
+  --     opts.root_dir = opts.root_dir
+  --       or require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git")
+  --     opts.sources = vim.list_extend(opts.sources or {}, {
+  --       nls.builtins.diagnostics.cspell,
+  --       nls.builtins.code_actions.cspell,
+  --     })
+  --   end,
+  -- },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
