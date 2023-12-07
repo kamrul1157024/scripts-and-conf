@@ -10,3 +10,7 @@ function exec-if-not-exit(){
       eval  $2
   fi
 }
+
+function date(){
+  command date +"%Y-%m-%dT%H:%M:%S%z"
+}
