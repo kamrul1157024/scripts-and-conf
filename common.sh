@@ -11,6 +11,6 @@ function exec-if-not-exit(){
   fi
 }
 
-function date(){
-  command date +"%Y-%m-%dT%H:%M:%S%z"
-}
+# function date(){
+#   command date +"%Y-%m-%dT%H:%M:%S%z"
+# }
