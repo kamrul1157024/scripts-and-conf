@@ -22,7 +22,7 @@ e(){
 }
 
 nc-init(){
-  nc-docker up cmp-client content-repo preview-url-cacher
+  nc-docker up cmp-client content-repo preview-url-cacher editor-component-proxy editor-component-service color-picker-editor
 }
 
 
