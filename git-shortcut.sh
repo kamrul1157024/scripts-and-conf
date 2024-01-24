@@ -6,6 +6,7 @@ alias gcommit="git commit -m $1"
 alias gpush="git push kamrul HEAD"
 alias gpull="git pull newscred master"
 alias grename="git remote rename origin kamrul"
+alias gi="git rebase -i HEAD~$1"
 
 function gh-review(){
   repo_name=$(echo "$1"|cut -d "/" -f 5)
