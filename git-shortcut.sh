@@ -1,12 +1,14 @@
 source ~/scripts-and-conf/common.sh
 alias glog="git log --graph --oneline"
-alias gdiff="git diff"
-alias gadd="git add ."
-alias gcommit="git commit -m $1"
-alias gpush="git push kamrul HEAD"
+alias gd="git diff"
+alias ga="git add $1"
+alias gc="git commit -m $1"
+alias gp="git push kamrul HEAD"
+gri(){
+  eval "git rebase -i HEAD~$1"
+}
 alias gpull="git pull newscred master"
 alias grename="git remote rename origin kamrul"
-alias gi="git rebase -i HEAD~$1"
 
 function gh-review(){
   repo_name=$(echo "$1"|cut -d "/" -f 5)
