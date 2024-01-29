@@ -34,5 +34,6 @@ fork-all(){
   for repo in $repos; do
     cd ~/workspace/$repo
     gh-remote
+    git fetch kamrul
   done
 }
