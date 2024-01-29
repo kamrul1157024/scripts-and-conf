@@ -29,3 +29,10 @@ function gh-remote(){
   git remote -v
 }
 
+fork-all(){
+  repos=$(ls -d */)
+  for repo in $repos; do
+    cd ~/workspace/$repo
+    gh-remote
+  done
+}
