@@ -11,7 +11,7 @@ function exec-if-not-exit() {
 }
 
 function split-string() {
-	IFS=$1 read -ra ADDR <<<"$2"
+	IFS=$1; read -ra ADDR <<<"$2"
   echo $ADDR
 }
 

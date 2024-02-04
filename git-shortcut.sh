@@ -88,3 +88,14 @@ fork-all() {
 		git fetch kamrul
 	done
 }
+
+gh-find() {
+	pr_info=$(gh pr list --search $1 --state merged)
+	if [[ -z "$pr_info" ]]; then
+		echo "No Pr found with $1 commit"
+		return
+	fi
+	pr_info_arr=($pr_info)
+	pr_id="${pr_info_arr[0]}"
+	gh pr view $pr_id
+}
