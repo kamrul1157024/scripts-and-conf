@@ -1,5 +1,5 @@
 source ~/scripts-and-conf/common.sh
-workon localdev
+activate-localdev
 
 restart(){
   nc-docker down $1
