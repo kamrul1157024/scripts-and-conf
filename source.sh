@@ -26,4 +26,5 @@ create-ts-app(){
   exec-if-not-exist pnpm "pnpm-setup"
   pnpm install
 }
+eval "$(oh-my-posh init bash --config ~/scripts-and-conf/themes/oh-my-posh/half-life.omp.json )"
 
