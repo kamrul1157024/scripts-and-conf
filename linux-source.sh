@@ -19,6 +19,8 @@ activate-localdev (){
   workon localdev
 }
 
+terminal="bash"
+
 source ~/scripts-and-conf/source.sh
 
 
