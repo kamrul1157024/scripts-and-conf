@@ -22,8 +22,7 @@ e(){
 }
 
 nc-init(){
-  nc-docker up cmp-client content-repo preview-url-cacher 
+  nc-docker up cmp-client
 }
-
 
 alias ncd="nc-docker $1"
