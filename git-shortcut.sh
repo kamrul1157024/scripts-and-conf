@@ -2,7 +2,7 @@ source ~/scripts-and-conf/common.sh
 alias glog="git log --graph --oneline"
 alias gd="git diff"
 alias ga="git add $1"
-alias gam="git commit --amend"
+alias gam="git commit --amend --no-edit"
 alias gc="git commit -m $1"
 alias gp="git push kamrul HEAD"
 
