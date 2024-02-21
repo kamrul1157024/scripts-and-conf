@@ -2,11 +2,11 @@ return {
   {
     "navarasu/onedark.nvim",
     opts = {
-      transparent= true,
-      style = "darker",
-      colors = {
-        bg0 = '#000000',
-      }
+      -- transparent= true,
+      style = "warmer",
+      -- colors = {
+      --   bg0 = '#000000',
+      -- }
     },
   },
  {
