@@ -15,6 +15,10 @@ function split-string() {
   echo $ADDR
 }
 
+function tr (){
+  eval "source ~/.${terminal}rc"
+}
+
 # function date(){
 #   command date +"%Y-%m-%dT%H:%M:%S%z"
 # }
