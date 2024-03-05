@@ -1,3 +1,5 @@
+alias ccat='pygmentize -g -O style=github-dark,linenos=1'
+
 function getRepoNameFromPwd() {
 	repoName=$(pwd | awk -F "/" '{print $NF}')
 	echo $repoName

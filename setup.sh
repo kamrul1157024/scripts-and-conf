@@ -33,6 +33,10 @@ sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
 
 ##
 
+#for printing codes on terminal with syntax highlighting
+pip3 install Pygments
+#########################################
+
 
 source ~/scripts-and-conf/sync-config.sh
 echo "Install All tmux plugins by running Ctrl-B + I"
