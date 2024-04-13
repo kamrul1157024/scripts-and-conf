@@ -21,6 +21,8 @@ function tr (){
   eval "source ~/.${terminal}rc"
 }
 
+alias k="kubectl $1"
+
 # function date(){
 #   command date +"%Y-%m-%dT%H:%M:%S%z"
 # }
