@@ -1,6 +1,7 @@
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+source <(kubectl completion zsh)
 activate-localdev(){
   pyenv activate localdev
 }
