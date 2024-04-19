@@ -6,6 +6,8 @@ nvim(){
   command nvim $1
 }
 
+export KUBE_EDITOR='nvim'
+
 pnpm-setup(){
   curl -fsSL https://get.pnpm.io/install.sh | sh -
 }
