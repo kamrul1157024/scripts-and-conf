@@ -1,5 +1,6 @@
 alias ccat='pygmentize -g -O style=github-dark,linenos=1'
 alias dps="docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
+alias ghr="gh-review -r $1"
 
 function getRepoNameFromPwd() {
 	repoName=$(pwd | awk -F "/" '{print $NF}')
