@@ -10,4 +10,5 @@ activate-localdev(){
 }
 terminal="zsh"
 source ~/scripts-and-conf/source.sh
+alias act="act $1 --container-architecture linux/amd64"
 export COMPOSE_DOCKER_CLI_BUILD=1
