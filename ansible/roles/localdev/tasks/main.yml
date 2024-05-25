@@ -1,0 +1,98 @@
+---
+# tasks file for localdev
+- name: Ensure tmux is installed
+  apt:
+    name: tmux
+    state: present
+  become: yes  # Ensure the command is run with sudo
+
+- name: Ensure the directory for TPM exists
+  file:
+    path: ~/.tmux/plugins
+    state: directory
+    mode: '0755'
+  become: yes
+  become_user: "{{ ansible_user_id }}"  # Ensure the directory is created as the current user
+
+- name: Clone TPM repository
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: ~/.tmux/plugins/tpm
+  become: yes
+  become_user: "{{ ansible_user_id }}"  # Ensure the repository is cloned as the current user
+
+- name: Download Node.js tarball
+  get_url:
+    url: https://nodejs.org/dist/v20.11.0/node-v20.11.0-linux-x64.tar.xz
+    dest: ~/node-v20.11.0-linux-x64.tar.xz
+
+- name: Extract Node.js tarball to /usr/local
+  become: yes
+  ansible.builtin.unarchive:
+    src: ~/node-v20.11.0-linux-x64.tar.xz
+    dest: /usr/local
+    extra_opts: [--strip-components=1]
+    remote_src: yes
+
+- name: Clean up Node.js tarball
+  file:
+    path: ~/node-v20.11.0-linux-x64.tar.xz
+    state: absent
+
+- name: Ensure necessary packages are installed
+  apt:
+    name:
+      - ripgrep
+      - fzf
+    state: present
+  become: yes
+
+- name: Install cspell globally using npm
+  npm:
+    name: cspell
+    global: yes
+
+- name: Download the latest nvim.appimage
+  get_url:
+    url: https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+    dest: ~/nvim.appimage
+    mode: '0755'
+
+- name: Extract nvim.appimage
+  command: ./nvim.appimage --appimage-extract
+  args:
+    chdir: ~
+
+- name: Verify neovim version
+  command: ./squashfs-root/AppRun --version
+  args:
+    chdir: ~
+
+- name: Move squashfs-root to root directory
+  command: mv squashfs-root /
+  become: yes
+
+- name: Create symlink for nvim
+  file:
+    src: /squashfs-root/AppRun
+    dest: /usr/bin/nvim
+    state: link
+  become: yes
+
+- name: Install Pygments using pip3
+  pip:
+    name: Pygments
+    executable: pip3
+
+- name: Source the sync-config.sh script
+  shell: source ~/scripts-and-conf/sync-config.sh
+  args:
+    executable: /bin/bash
+
+- name: Print message to install tmux plugins
+  debug:
+    msg: "Install All tmux plugins by running Ctrl-B + I"
+
+- name: Print message to open NeoVim to install plugins
+  debug:
+    msg: "Open NeoVim to install plugins"

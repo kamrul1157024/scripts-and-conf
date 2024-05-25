@@ -1,0 +1,6 @@
+- name: Run localdev role
+  hosts: localhost
+  become: yes
+  roles:
+    - localdev
+
