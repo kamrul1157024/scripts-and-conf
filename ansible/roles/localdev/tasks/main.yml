@@ -59,7 +59,7 @@
     mode: '0755'
 
 - name: Extract nvim.appimage
-  command: ./nvim.appimage --appimage-extract
+  command: ~/nvim.appimage --appimage-extract
   args:
     chdir: ~
 
