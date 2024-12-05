@@ -6,13 +6,20 @@ alias gam="git commit --amend --no-edit"
 alias gc="git commit -m $1"
 alias gp="git push kamrul HEAD"
 
+root_branch='master'
+
+if [ $(git branch --list "$root_branch") ]; then
+else
+	root_branch='main'
+fi
+
 gri() {
 	eval "git rebase -i HEAD~$1"
 }
 
 grm() {
-	git fetch newscred master
-	git rebase newscred/master
+	git fetch newscred "$root_branch"
+	git rebase newscred/"$root_branch"
 }
 
 grh() {
@@ -21,10 +28,10 @@ grh() {
 }
 
 grhnm() {
-	grh newscred master
+	grh newscred "$root_branch"
 }
 
-alias gpull="git pull newscred master"
+alias gpull="git pull newscred $root_branch"
 alias grename="git remote rename origin kamrul"
 
 fetch-and-checkout() {
@@ -81,7 +88,7 @@ function gh-remote() {
 }
 
 fork-all() {
-repos=($(ls -d */))
+	repos=($(ls -d */))
 	for repo in $repos; do
 		cd ~/workspace/$repo
 		gh-remote
