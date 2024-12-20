@@ -15,15 +15,20 @@ function exec-if-not-exit() {
 }
 
 function split-string() {
-	IFS=$1; read -ra ADDR <<<"$2"
-  echo $ADDR
+	IFS=$1
+	read -ra ADDR <<<"$2"
+	echo $ADDR
 }
 
-function tr (){
-  eval "source ~/.${terminal}rc"
+function tr() {
+	eval "source ~/.${terminal}rc"
 }
 
 alias k="kubectl $1"
+
+function run-colab-server() {
+	docker run -p 127.0.0.1:9000:8080 us-docker.pkg.dev/colab-images/public/runtime
+}
 
 # function date(){
 #   command date +"%Y-%m-%dT%H:%M:%S%z"
