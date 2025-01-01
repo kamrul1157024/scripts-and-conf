@@ -21,6 +21,11 @@ return {
               ["<C-t>"] = "<C-q>",
             },
           },
+          pickers = {
+            find_files = {
+              theme = "dropdown",
+            },
+          },
         },
         extensions = {
           live_grep_args = {

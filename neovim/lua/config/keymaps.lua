@@ -1,4 +1,13 @@
 vim.api.nvim_set_keymap("n", "<leader>e", ":Neotree toggle<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>gb", ":Neotree buffers<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ge", ":Neotree git_status<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gd", function()
+  if next(require("diffview.lib").views) == nil then
+    vim.cmd("DiffviewOpen")
+  else
+    vim.cmd("DiffviewClose")
+  end
+end, { desc = "Toggle git diff " })
 
 vim.api.nvim_create_user_command("Format", function(args)
   local range = nil
@@ -101,4 +110,4 @@ vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buff
 vim.keymap.set("n", "<leader>sr", '<cmd>lua require("spectre").toggle()<CR>', {
   desc = "Toggle Spectre",
 })
-vim.api.nvim_set_keymap('n', '<Esc>', ':nohlsearch<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Esc>", ":nohlsearch<CR>", { noremap = true, silent = true })
