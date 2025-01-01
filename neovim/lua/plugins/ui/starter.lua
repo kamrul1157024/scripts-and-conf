@@ -28,7 +28,7 @@ return {
     dashboard.section.buttons.val = {
       dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
       dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
-      dashboard.button("s", "  Restore Session", ":RestoreSession<CR>"),
+      dashboard.button("s", "  Restore Session", ":SessionRestore<CR>"),
       dashboard.button("q", "  Quit", ":qa<CR>"),
     }
 
