@@ -23,8 +23,16 @@ vim.keymap.set("n", "<leader>ca", function()
 end, { noremap = true, silent = true })
 
 local builtin = require("telescope.builtin")
+local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-vim.keymap.set("n", "<leader>/", builtin.live_grep, { desc = "Telescope live grep" })
+vim.keymap.set(
+  "n",
+  "<leader>/",
+  ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+  { desc = "Telescope live grep" }
+)
+vim.keymap.set("n", "<leader>sw", live_grep_args_shortcuts.grep_word_under_cursor, { noremap = true })
+vim.keymap.set("v", "<leader>sw", live_grep_args_shortcuts.grep_visual_selection, { noremap = true })
 vim.keymap.set("n", "<leader>,", builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 vim.keymap.set("n", "<leader>sh", builtin.search_history, { desc = "Telescope search history" })
@@ -77,7 +85,7 @@ vim.api.nvim_create_user_command("Cppath", function()
   local path = vim.fn.expand("%")
   vim.fn.setreg("+", path)
   vim.notify('Copied "' .. path .. '" to the clipboard!')
-end, {})
+end, { desc = "Copy relative path of current file" })
 
 vim.keymap.set("n", "<leader>yr", vim.cmd.Cppath, { desc = "Copy relative path of current file", noremap = false })
 vim.keymap.set("v", "<leader>cs", "'<, '>sort")
@@ -89,3 +97,7 @@ vim.keymap.set(
 )
 
 vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+
+vim.keymap.set("n", "<leader>sr", '<cmd>lua require("spectre").toggle()<CR>', {
+  desc = "Toggle Spectre",
+})
