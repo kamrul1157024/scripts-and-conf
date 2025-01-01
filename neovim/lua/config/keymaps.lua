@@ -34,12 +34,7 @@ end, { noremap = true, silent = true })
 local builtin = require("telescope.builtin")
 local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-vim.keymap.set(
-  "n",
-  "<leader>/",
-  ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
-  { desc = "Telescope live grep" }
-)
+vim.keymap.set("n", "<leader>/", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>sw", live_grep_args_shortcuts.grep_word_under_cursor, { noremap = true })
 vim.keymap.set("v", "<leader>sw", live_grep_args_shortcuts.grep_visual_selection, { noremap = true })
 vim.keymap.set("n", "<leader>,", builtin.buffers, { desc = "Telescope buffers" })
@@ -98,16 +93,23 @@ end, { desc = "Copy relative path of current file" })
 
 vim.keymap.set("n", "<leader>yr", vim.cmd.Cppath, { desc = "Copy relative path of current file", noremap = false })
 vim.keymap.set("v", "<leader>cs", "'<, '>sort")
-vim.keymap.set(
-  "n",
-  "<leader>ctc",
-  switch_case,
-  { desc = "Toggle between snake_case and camelCase", noremap = true, silent = true }
-)
+vim.keymap.set("n", "<leader>ctc", switch_case, { desc = "Toggle between snake_case and camelCase", noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
 vim.keymap.set("n", "<leader>sr", '<cmd>lua require("spectre").toggle()<CR>', {
   desc = "Toggle Spectre",
 })
-vim.api.nvim_set_keymap("n", "<Esc>", ":nohlsearch<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { noremap = true, silent = true })
+
+local harpoon = require("harpoon")
+
+vim.keymap.set("n", "<leader>hl", function()  harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Toggle harpoon" })
+vim.keymap.set("n", "<leader>ha", function()  harpoon:list():add() end, { desc = "Add current file to harpoon" })
+vim.keymap.set("n", "<leader>hq", function()  harpoon:list():select(1) end, { desc = "Select harpoon 1" })
+vim.keymap.set("n", "<leader>hw", function()  harpoon:list():select(2) end, { desc = "Select harpoon 2" })
+vim.keymap.set("n", "<leader>he", function()  harpoon:list():select(3) end, { desc = "Select harpoon 3" })
+vim.keymap.set("n", "<leader>hr", function()  harpoon:list():select(4) end, { desc = "Select harpoon 4" })
+
+vim.keymap.set("n", "<leader>hp", function()  harpoon:list():prev() end, { desc = "Previous harpoon" })
+vim.keymap.set("n", "<leader>hn", function()  harpoon:list():next() end, { desc = "Next harpoon" })
