@@ -101,3 +101,4 @@ vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buff
 vim.keymap.set("n", "<leader>sr", '<cmd>lua require("spectre").toggle()<CR>', {
   desc = "Toggle Spectre",
 })
+vim.api.nvim_set_keymap('n', '<Esc>', ':nohlsearch<CR>', { noremap = true, silent = true })
