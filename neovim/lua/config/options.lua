@@ -8,3 +8,9 @@ vim.opt.shiftwidth = 2
 vim.opt.autoindent = true
 vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, { "ExtraGroup" })
 vim.api.nvim_set_option("clipboard","unnamed") -- To connect clipboard to default yank and paste register
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldcolumn = "0"
+vim.opt.foldtext = ""
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
