@@ -104,7 +104,7 @@ vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { noremap = true, silent = true 
 
 local harpoon = require("harpoon")
 
-vim.keymap.set("n", "<leader>hl", function()  harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Toggle harpoon" })
+vim.keymap.set("n", "<leader>hh", function()  harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Toggle harpoon" })
 vim.keymap.set("n", "<leader>ha", function()  harpoon:list():add() end, { desc = "Add current file to harpoon" })
 vim.keymap.set("n", "<leader>hq", function()  harpoon:list():select(1) end, { desc = "Select harpoon 1" })
 vim.keymap.set("n", "<leader>hw", function()  harpoon:list():select(2) end, { desc = "Select harpoon 2" })
