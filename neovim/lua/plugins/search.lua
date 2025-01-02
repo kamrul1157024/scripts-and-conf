@@ -15,15 +15,18 @@ return {
       local telescope = require("telescope")
       local lga_actions = require("telescope-live-grep-args.actions")
       telescope.setup({
-        defualts = {
-          mappings = {
-            i = {
-              ["<C-t>"] = "<C-q>",
-            },
-          },
-          pickers = {
-            find_files = {
-              theme = "ivy",
+        pickers = {
+          buffers = {
+            show_all_buffers = true,
+            sort_lastused = true,
+            theme = "ivy",
+            mappings = {
+              i = {
+                ["<c-d>"] = "delete_buffer",
+              },
+              n = {
+                ["dd"] = "delete_buffer",
+              },
             },
           },
         },
@@ -33,8 +36,6 @@ return {
             -- define mappings, e.g.
             mappings = { -- extend mappings
               i = {
-                ["<C-k>"] = lga_actions.quote_prompt(),
-                ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
                 -- freeze the current list and start a fuzzy search in the frozen list
                 ["<C-space>"] = lga_actions.to_fuzzy_refine,
               },
@@ -65,16 +66,24 @@ return {
       vim.keymap.set("v", "<leader>sw", function()
         builtin.grep_string(opts)
       end, { noremap = true })
-      vim.keymap.set("n", "<leader>,", builtin.buffers, { desc = "Telescope buffers" })
-      vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
-      vim.keymap.set("n", "<leader>sh", builtin.search_history, { desc = "Telescope search history" })
-      vim.keymap.set("n", "<leader>fr", builtin.search_history, { desc = "Telescope recent files" })
+      vim.keymap.set("n", "<leader>,", function()
+        builtin.buffers(opts)
+      end, { desc = "Telescope buffers" })
+      vim.keymap.set("n", "<leader>fh", function()
+        builtin.help_tags(opts)
+      end, { desc = "Telescope help tags" })
+      vim.keymap.set("n", "<leader>sh", function()
+        builtin.search_history(opts)
+      end, { desc = "Telescope search history" })
+      vim.keymap.set("n", "<leader>fr", function()
+        builtin.search_history(opts)
+      end, { desc = "Telescope recent files" })
     end,
   },
   {
     "nvim-pack/nvim-spectre",
-    config = function ()
-      require('spectre').setup()
-    end
+    config = function()
+      require("spectre").setup()
+    end,
   },
 }
