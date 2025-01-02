@@ -4,7 +4,7 @@ return {
   -- dir = "/Volumes/t7ex/Documents/oatnil/release/scratch.nvim",
   config = function()
     require("scratch").setup({
-      scratch_file_dir = vim.fn.stdpath("cache") .. "/scratch.nvim", -- where your scratch files will be put
+      scratch_file_dir =  "~/scratch.nvim", -- where your scratch files will be put
       filetypes = { "lua", "js", "sh", "ts", "md", "txt", "http", "html", "puml", "py" }, -- you can simply put filetype here
       hooks = {
         {
