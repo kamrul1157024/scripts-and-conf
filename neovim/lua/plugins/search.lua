@@ -23,7 +23,7 @@ return {
           },
           pickers = {
             find_files = {
-              theme = "dropdown",
+              theme = "ivy",
             },
           },
         },
@@ -47,10 +47,34 @@ return {
         },
       })
       telescope.load_extension("live_grep_args")
+      local builtin = require("telescope.builtin")
+      local opts = require("telescope.themes").get_ivy({
+        layout_config = {
+          height = 40,
+        },
+      })
+      vim.keymap.set("n", "<leader>ff", function()
+        builtin.find_files(opts)
+      end, { desc = "Telescope find files" })
+      vim.keymap.set("n", "<leader>/", function()
+        builtin.live_grep(opts)
+      end, { desc = "Telescope live grep" })
+      vim.keymap.set("n", "<leader>sw", function()
+        builtin.grep_string(opts)
+      end, { noremap = true })
+      vim.keymap.set("v", "<leader>sw", function()
+        builtin.grep_string(opts)
+      end, { noremap = true })
+      vim.keymap.set("n", "<leader>,", builtin.buffers, { desc = "Telescope buffers" })
+      vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
+      vim.keymap.set("n", "<leader>sh", builtin.search_history, { desc = "Telescope search history" })
+      vim.keymap.set("n", "<leader>fr", builtin.search_history, { desc = "Telescope recent files" })
     end,
   },
   {
     "nvim-pack/nvim-spectre",
-    opts = {},
+    config = function ()
+      require('spectre').setup()
+    end
   },
 }
