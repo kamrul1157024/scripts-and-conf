@@ -5,7 +5,6 @@ return {
     { "nvim-treesitter/nvim-treesitter" },
   },
   config = function()
-    vim.fn["fzf#install"]()
     vim.cmd("TSUpdate")
   end,
 }
