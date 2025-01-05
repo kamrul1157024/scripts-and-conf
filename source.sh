@@ -3,7 +3,7 @@ source ~/scripts-and-conf/newscred.sh
 
 nvim(){
   tmux rename-window "$(basename $(pwd))"
-  XDG_CONFIG_HOME=~/scripts-and-conf NVIM_APPNAME=neovim command nvim $1
+  XDG_CONFIG_HOME=~/scripts-and-conf NVIM_APPNAME=neovim command nvim $@
 }
 
 export KUBE_EDITOR='nvim'
