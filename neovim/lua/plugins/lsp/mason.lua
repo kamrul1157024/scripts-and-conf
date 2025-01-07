@@ -20,18 +20,9 @@ return {
       -- start
       ensure_installed = {
         "lua-language-server",
-        "gopls",
-        "stylua",
-        "shellcheck",
-        "editorconfig-checker",
-        "gofumpt",
-        "golines",
-        "gomodifytags",
-        "gotests",
-        "revive",
         "shellcheck",
         "prettierd",
-        "eslint_d",
+        "eslint-lsp",
         "typescript-language-server",
       },
 

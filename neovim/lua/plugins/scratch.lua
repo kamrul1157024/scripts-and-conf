@@ -6,14 +6,7 @@ return {
     require("scratch").setup({
       scratch_file_dir = vim.fn.expand("$HOME/scratch.nvim"), -- where your scratch files will be put
       filetypes = { "lua", "js", "sh", "ts", "md", "txt", "http", "html", "puml", "py" }, -- you can simply put filetype here
-      hooks = {
-        {
-          callback = function()
-            vim.print("hello")
-            vim.api.nvim_buf_set_lines(0, 0, -1, false, { "hello", "world" })
-          end,
-        },
-      },
+      hooks = {},
       filetype_details = { -- or, you can have more control here
         json = {}, -- empty table is fine
         ["project-name.md"] = {
@@ -46,8 +39,8 @@ return {
       },
     })
 
-    vim.keymap.set({ "n", "v", "i" }, "<M-C-n>", "<cmd>Scratch<cr>")
-    vim.keymap.set({ "n", "v", "i" }, "<M-C-o>", "<cmd>ScratchOpen<cr>")
+    vim.keymap.set({ "n", "v", "i" }, "<M-s-n>", "<cmd>Scratch<cr>")
+    vim.keymap.set({ "n", "v", "i" }, "<M-s-o>", "<cmd>ScratchOpen<cr>")
   end,
   event = "VeryLazy",
 }

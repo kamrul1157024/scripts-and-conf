@@ -1,6 +1,6 @@
 return {
   "kamrul1157024/nvim-pr",
-  dir = "~/nvim-pr",
+  dir = "~/plugins.nvim/nvim-pr",
   config = function()
     require("nvim-pr").setup()
     vim.keymap.set("n", "<leader>gprv", ":PR open<CR>", { desc = "View PR in the editor" })
