@@ -12,3 +12,4 @@ terminal="zsh"
 source ~/scripts-and-conf/source.sh
 alias act="act $1 --container-architecture linux/amd64"
 export COMPOSE_DOCKER_CLI_BUILD=1
+eval "$(oh-my-posh init $terminal --config ~/scripts-and-conf/themes/oh-my-posh/half-life.omp.json )"

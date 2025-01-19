@@ -6,35 +6,50 @@ alias gam="git commit --amend --no-edit"
 alias gc="git commit -m $1"
 alias gp="git push kamrul HEAD"
 
-root_branch='master'
+function get-root-branch() {
+	if git show-ref --quiet refs/heads/master; then
+		root_branch="master"
+	elif git show-ref --quiet refs/heads/main; then
+		root_branch="main"
+	else
+		echo "Neither 'master' nor 'main' branch exists."
+		return 1
+	fi
+}
 
-if [ $(git branch --list "$root_branch") ]; then
-else
-	root_branch='main'
-fi
-
-gri() {
+function gri() {
 	eval "git rebase -i HEAD~$1"
 }
 
-grm() {
+function grbm() {
+	get-root-branch
 	git fetch newscred "$root_branch"
-	git rebase newscred/"$root_branch"
+	git rebase "newscred/$root_branch"
 }
 
-grh() {
-	git fetch $1 $2
+function gcm() {
+	get-root-branch
+	git checkout "$root_branch"
+}
+
+function grh() {
+	git fetch "$1" "$2"
 	git reset --hard "$1/$2"
 }
 
-grhnm() {
+function grhnm() {
+	get-root-branch
 	grh newscred "$root_branch"
 }
 
-alias gpull="git pull newscred $root_branch"
+function gpull() {
+	get-root-branch
+	git pull newscred $root_branch
+}
+
 alias grename="git remote rename origin kamrul"
 
-fetch-and-checkout() {
+function fetch-and-checkout() {
 	echo "----------------------------------------------------------"
 	echo "Fetching PR $1"
 	echo "----------------------------------------------------------"
@@ -43,7 +58,7 @@ fetch-and-checkout() {
 	gh pr checkout -f $1
 }
 
-gh-review() {
+function gh-review() {
 	local OPTIND
 	local OPTARG
 	while getopts "s:r:" o; do
@@ -72,7 +87,7 @@ gh-review() {
 	done
 }
 
-fork-and-add-remote() {
+function fork-and-add-remote() {
 	gh repo fork "newscred/$1" --clone=False
 	git remote rm kamrul
 	git remote add kamrul "git@github.com:kamrul1157024/$1.git"
@@ -87,7 +102,7 @@ function gh-remote() {
 	git remote -v
 }
 
-fork-all() {
+function fork-all() {
 	repos=($(ls -d */))
 	for repo in $repos; do
 		cd ~/workspace/$repo

@@ -1,6 +1,6 @@
-export WORKON_HOME=~/Envs
-mkdir -p $WORKON_HOME
-source ~/.local/bin/virtualenvwrapper.sh
+# export WORKON_HOME=~/Envs
+# mkdir -p $WORKON_HOME
+# source ~/.local/bin/virtualenvwrapper.sh
 
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
@@ -16,7 +16,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 
 activate-localdev (){
-  workon localdev
+	echo "null">>/dev/null
 }
 
 terminal="bash"
@@ -51,8 +51,8 @@ function ssh-add-file() {
 EOF
 }
 
-ssh-add-file ~/.ssh/id_rsa ~/.ssh/passphrase >>/dev/null
-
+# ssh-add-file ~/.ssh/id_rsa ~/.ssh/passphrase >>/dev/null
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
+
 
