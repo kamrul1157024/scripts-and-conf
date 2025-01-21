@@ -44,7 +44,8 @@ function grhnm() {
 
 function gpull() {
 	get-root-branch
-	git pull newscred $root_branch
+	echo "Pulling from newscred $root_branch"
+	git pull newscred "$root_branch"
 }
 
 alias grename="git remote rename origin kamrul"
