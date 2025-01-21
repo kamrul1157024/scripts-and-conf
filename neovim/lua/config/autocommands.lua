@@ -32,3 +32,12 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  group = augroup("set_spacing"),
+  pattern = "*",
+  callback = function()
+    vim.cmd("set tabstop=2")
+    vim.cmd("set shiftwidth=2")
+    vim.cmd("set expandtab")
+  end,
+})

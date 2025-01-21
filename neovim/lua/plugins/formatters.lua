@@ -21,7 +21,8 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "isort", "black" },
-			javascript = { "prettier", stop_after_first = true },
+			javascript = { "prettier" },
+			typescript = { "prettier" },
 			javascriptreact = { "prettier" },
 			typescriptreact = { "prettier" },
 			svelte = { "prettier" },
@@ -37,8 +38,6 @@ return {
 		default_format_opts = {
 			lsp_format = "fallback",
 		},
-		-- Set up format-on-save
-		format_on_save = { timeout_ms = 500 },
 		-- Customize formatters
 		formatters = {
 			shfmt = {
