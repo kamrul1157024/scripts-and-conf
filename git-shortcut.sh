@@ -7,14 +7,14 @@ alias gc="git commit -m $1"
 alias gp="git push kamrul HEAD"
 
 function get-root-branch() {
-	if git show-ref --quiet refs/heads/master; then
+      if [ "`git branch --list master`" ]; then
 		root_branch="master"
-	elif git show-ref --quiet refs/heads/main; then
+      elif [ "`git branch --list main`" ]; then
 		root_branch="main"
-	else
+      else
 		echo "Neither 'master' nor 'main' branch exists."
 		return 1
-	fi
+      fi
 }
 
 function gri() {
