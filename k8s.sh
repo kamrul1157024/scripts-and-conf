@@ -10,8 +10,8 @@ k8s-token() {
 
 k8s-command() {
 	k8s-login
-	pods=$(kubectl get pod -A|grep $1)
-	pods_count=$(echo $pods|grep -c '^')
+    pods=$(kubectl get pod -A | grep "$1")
+    pods_count=$(echo "$pods" | grep -c '^')
 	if [[ $pods == '' ]]
 	then
 		echo "No Matching pod found"
@@ -27,9 +27,9 @@ k8s-command() {
 	pod_namespace=$(echo $selected_pod|awk 'NR==1')
 	pod_name=$(echo $selected_pod|awk 'NR==2')
 	kubectl config set-context --current --namespace=$pod_namespace>>/dev/null
-	containers=$(kubectl get pod $pod_name -o jsonpath='{.spec.containers[*].name}'|grep -oE "(\w|-)+")
-	container_count=$(echo $containers|grep -c '^')
-	if [[ container_count -gt 1 ]]
+    containers=$(kubectl get pod "$pod_name" -o jsonpath='{.spec.containers[*].name}' | grep -oE "(\w|-)+")
+    container_count=$(echo "$containers" | grep -c '^')
+    if [[ $container_count -gt 1 ]]
 	then
 		selected_container_name=$(echo $containers|grep -oE "(\w|-)+"|fzf)
 	else
