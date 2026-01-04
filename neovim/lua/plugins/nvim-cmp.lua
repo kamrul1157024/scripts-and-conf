@@ -15,8 +15,7 @@ return {
       mode = "symbol_text",
       -- default symbol map
       -- can be either 'default' (requires nerd-fonts font) or
-      -- 'codicons' for codicon preset (requires vscode-codicons font)
-      --
+      -- 'codicons' for codicon preset (requires vscode-codicons font) --
       -- default: 'default'
       preset = "codicons",
 
@@ -70,16 +69,12 @@ return {
       }),
       sources = {
         { name = "nvim_lsp", group_index = 2},
-        { name = "copilot", group_index = 2 },
         { name = "path", group_index = 2 },
         { name = "luasnip", group_index = 2 },
       },
       sorting = {
         priority_weight = 2,
         comparators = {
-          require("copilot_cmp.comparators").prioritize,
-
-          -- Below is the default comparitor list and order for nvim-cmp
           cmp.config.compare.offset,
           -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
           cmp.config.compare.exact,
